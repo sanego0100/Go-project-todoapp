@@ -1,0 +1,12 @@
+services:
+  todoapp-pg:
+    image: postgres:18
+    container_name: todoapp-pg
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASS}
+      - POSTGRES_DB=${POSTGRES_DB}
+    restart: unless-stopped    
+
+    volumes:
+      - ${PROJECT_ROOT}/out/pgdata:/var/lib/postgresql
